@@ -26,6 +26,11 @@ data_plugins:
     kwargs:
       cycle_time: 75
 
+    notifications:
+        provider: qtpyvcp.plugins.notifications:Notifications
+        kwargs:
+          enabled: False
+
 windows:
 
   mainwindow:
@@ -48,3 +53,39 @@ application:
   kwargs:
     # Specify the application wide stylesheet.
     stylesheet: {{ file.dir }}/ui/style.qss
+
+settings:
+    manual-touchoff.xy-offset:
+        description: the offset used by the X and Y manual touch off. This would normally be the radius of a wiggler or equivalent
+        default_value: 0.0
+        persistent: true
+        min_value: -50
+        max_value: 50
+
+    manual-touchoff.z-offset:
+        description: the offset used by the Z manual touch off. Normally a guage block or guage pin
+        default_value: 0.0
+        persistent: true
+        min_value: -50
+        max_value: 50
+
+    travel-test.travelDistanceTest:
+        description: travel test distance
+        default_value: 75.0
+        persistent: true
+        min_value: 0
+        max_value: 600
+
+    travel-test.travelDistanceTestFeed:
+        description: feed rate for travel test
+        default_value: 0.0
+        persistent: true
+        min_value: 0
+        max_value: 1000
+
+    travel-test.travelTestZlift:
+        description: feed rate for travel test
+        default_value: 0.0
+        persistent: true
+        min_value: 0
+        max_value: 150
